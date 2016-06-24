@@ -1,4 +1,4 @@
-Renesas Optimizing Linker (W2.04.00 )             24-Jun-2016 13:43:54
+Renesas Optimizing Linker (W2.04.00 )             24-Jun-2016 15:41:03
 
 *** Options ***
 
@@ -37,17 +37,17 @@ SU
 SI
                                   00000104  00000403       300   4
 B_1
-                                  00000404  00000424        21   1
+                                  00000404  00000504       101   1
 R_1
-                                  00000425  00000425         0   1
+                                  00000505  00000505         0   1
 B_2
-                                  00000425  00000425         0   1
+                                  00000505  00000505         0   1
 R_2
-                                  00000426  00000427         2   2
+                                  00000506  00000507         2   2
 B
-                                  00000428  00002847      2420   4
+                                  00000508  0000292b      2424   4
 R
-                                  00002848  00002c03       3bc   4
+                                  0000292c  00002ce7       3bc   4
 PResetPRG
                                   fff00000  fff00038        39   1
 C_1
@@ -79,11 +79,11 @@ W_1
 W_2
                                   fff00d06  fff00d06         0   1
 L
-                                  fff00d08  fff00e46       13f   4
+                                  fff00d08  fff00e6a       163   4
 PIntPRG
-                                  fff00e47  fff00f60       11a   1
+                                  fff00e6b  fff00f84       11a   1
 P
-                                  fff00f61  fff05663      4703   1
+                                  fff00f85  fff05752      47ce   1
 FIXEDVECT
                                   ffffff80  ffffffff        80   4
 
@@ -103,187 +103,191 @@ FILE=.\src\reset_program.obj
 
 SECTION=B_1
 FILE=.\RX63N_UART\RX63N_UART.obj
-                                  00000404  00000424        21
+                                  00000404  00000504       101
   _SCI2_recieved_data
-                                  00000404        20   data ,g         1
+                                  00000404       100   data ,g         4
   _data_updated
-                                  00000424         1   data ,g         4
+                                  00000504         1   data ,g         4
 
 SECTION=R_2
 FILE=vars
-                                  00000426  00000427         2
+                                  00000506  00000507         2
   ___eh_curr_region
-                                  00000426         2   data ,g        75
+                                  00000506         2   data ,g        75
 
 SECTION=B
 FILE=.\src\sbrk.obj
-                                  00000428  00000827       400
+                                  00000508  00000907       400
   _heap_area
-                                  00000428       400   data ,l         2
+                                  00000508       400   data ,l         2
+FILE=.\RX63N_UART\RX63N_UART.obj
+                                  00000908  0000090b         4
+  _data
+                                  00000908         4   data ,g         4
 FILE=vars
-                                  00000828  0000082f         8
+                                  0000090c  00000913         8
   ___catch_clause_number
-                                  00000828         4   data ,g         2
+                                  0000090c         4   data ,g         2
   ___caught_object_address
-                                  0000082c         4   data ,g         2
+                                  00000910         4   data ,g         2
 FILE=dtor_list
-                                  00000830  00000833         4
+                                  00000914  00000917         4
   _needed_destruction_head
-                                  00000830         4   data ,l         6
+                                  00000914         4   data ,l         6
 FILE=throw
-                                  00000834  00002847      2014
+                                  00000918  0000292b      2014
   _initial_mem_block_descr
-                                  00000834        14   data ,l         6
+                                  00000918        14   data ,l         6
   _initial_mem_block
-                                  00000848      2000   data ,l         1
+                                  0000092c      2000   data ,l         1
 
 SECTION=R
 FILE=.\src\OBMII.obj
-                                  00002848  00002877        30
+                                  0000292c  0000295b        30
   ___T1000008$1
-                                  00002848        30   data ,l         1
+                                  0000292c        30   data ,l         1
 FILE=.\src\sbrk.obj
-                                  00002878  0000287b         4
+                                  0000295c  0000295f         4
   _brk
-                                  00002878         4   data ,l         3
+                                  0000295c         4   data ,l         3
 FILE=.\Tests\TestSuiteCPU.obj
-                                  0000287c  000028ab        30
+                                  00002960  0000298f        30
   ___T1000004$1
-                                  0000287c        18   data ,l         1
+                                  00002960        18   data ,l         1
   ___T1000012$2
-                                  00002894        18   data ,l         1
+                                  00002978        18   data ,l         1
 FILE=.\Tests\TestSuiteUART.obj
-                                  000028ac  000028f3        48
+                                  00002990  000029d7        48
   ___T1000007$1
-                                  000028ac        18   data ,l         1
+                                  00002990        18   data ,l         1
   ___T1000018$2
-                                  000028c4        30   data ,l         1
+                                  000029a8        30   data ,l         1
 FILE=.\RX63N_UART\RX63N_UART.obj
-                                  000028f4  0000293b        48
+                                  000029d8  00002a1f        48
   ___T1000008$1
-                                  000028f4        18   data ,l         1
+                                  000029d8        18   data ,l         1
   ___T1000015$2
-                                  0000290c        24   data ,l         1
+                                  000029f0        24   data ,l         1
   ___T1000020$3
-                                  00002930         c   data ,l         1
+                                  00002a14         c   data ,l         1
 FILE=.\RX63N_CPU\RX63N_CPU.obj
-                                  0000293c  00002983        48
+                                  00002a20  00002a67        48
   ___T1000005$1
-                                  0000293c        18   data ,l         1
+                                  00002a20        18   data ,l         1
   ___T1000015$2
-                                  00002954        24   data ,l         1
+                                  00002a38        24   data ,l         1
   ___T1000020$3
-                                  00002978         c   data ,l         1
+                                  00002a5c         c   data ,l         1
 FILE=.\RX63N_CAN\RX63N_CAN.obj
-                                  00002984  00002a1b        98
+                                  00002a68  00002aff        98
   _MailboxInterruptEnableRegister
-                                  00002984         4   data ,g         0
+                                  00002a68         4   data ,g         0
   _MaskInvalidRegister
-                                  00002988         4   data ,g         0
+                                  00002a6c         4   data ,g         0
   ___T1000008$1
-                                  0000298c        18   data ,l         1
+                                  00002a70        18   data ,l         1
   ___T1000015$2
-                                  000029a4        18   data ,l         1
+                                  00002a88        18   data ,l         1
   ___T1000022$3
-                                  000029bc        18   data ,l         1
+                                  00002aa0        18   data ,l         1
   ___T1000029$4
-                                  000029d4        24   data ,l         1
+                                  00002ab8        24   data ,l         1
   ___T1000034$5
-                                  000029f8         c   data ,l         1
+                                  00002adc         c   data ,l         1
   ___T1000045$6
-                                  00002a04        18   data ,l         1
+                                  00002ae8        18   data ,l         1
 FILE=new
-                                  00002a1c  00002a27         c
+                                  00002b00  00002b0b         c
   ___T1000002$1
-                                  00002a1c         c   data ,l         1
+                                  00002b00         c   data ,l         1
 FILE=typeinfo
-                                  00002a28  00002acf        a8
+                                  00002b0c  00002bb3        a8
   ___T1000013$1
-                                  00002a28        24   data ,l         1
+                                  00002b0c        24   data ,l         1
   ___T1000019$2
-                                  00002a4c        24   data ,l         1
+                                  00002b30        24   data ,l         1
   ___T1000027$3
-                                  00002a70         c   data ,l         1
+                                  00002b54         c   data ,l         1
   ___T1000035$4
-                                  00002a7c        24   data ,l         1
+                                  00002b60        24   data ,l         1
   ___T1000041$5
-                                  00002aa0        24   data ,l         1
+                                  00002b84        24   data ,l         1
   ___T1000049$6
-                                  00002ac4         c   data ,l         1
+                                  00002ba8         c   data ,l         1
 FILE=vars
-                                  00002ad0  00002ae3        14
+                                  00002bb4  00002bc7        14
   __new_handler
-                                  00002ad0         4   data ,g         2
+                                  00002bb4         4   data ,g         2
   ___head
-                                  00002ad4         4   data ,g         1
+                                  00002bb8         4   data ,g         1
   ___curr_eh_stack_entry
-                                  00002ad8         4   data ,g        69
+                                  00002bbc         4   data ,g        69
   ___default_terminate_routine
-                                  00002adc         4   data ,g         4
+                                  00002bc0         4   data ,g         4
   ___default_unexpected_routine
-                                  00002ae0         4   data ,g         4
+                                  00002bc4         4   data ,g         4
 FILE=static_init
-                                  00002ae4  00002aeb         8
+                                  00002bc8  00002bcf         8
   _use_patch_info
-                                  00002ae4         4   data ,l         1
+                                  00002bc8         4   data ,l         1
   _dtors_done$1
-                                  00002ae8         4   data ,l         2
+                                  00002bcc         4   data ,l         2
 FILE=bad_alloc
-                                  00002aec  00002b3f        54
+                                  00002bd0  00002c23        54
   ___T1000006$1
-                                  00002aec        24   data ,l         1
+                                  00002bd0        24   data ,l         1
   ___T1000012$2
-                                  00002b10        24   data ,l         1
+                                  00002bf4        24   data ,l         1
   ___T1000020$3
-                                  00002b34         c   data ,l         1
+                                  00002c18         c   data ,l         1
 FILE=exception
-                                  00002b40  00002bc3        84
+                                  00002c24  00002ca7        84
   ___T1000006$1
-                                  00002b40        18   data ,l         1
+                                  00002c24        18   data ,l         1
   ___T1000013$2
-                                  00002b58        18   data ,l         1
+                                  00002c3c        18   data ,l         1
   ___T1000027$3
-                                  00002b70        24   data ,l         1
+                                  00002c54        24   data ,l         1
   ___T1000033$4
-                                  00002b94        24   data ,l         1
+                                  00002c78        24   data ,l         1
   ___T1000041$5
-                                  00002bb8         c   data ,l         1
+                                  00002c9c         c   data ,l         1
 FILE=eh_util
-                                  00002bc4  00002bd7        14
+                                  00002ca8  00002cbb        14
   _terminate_called_by_runtime
-                                  00002bc4         4   data ,l         2
+                                  00002ca8         4   data ,l         2
   _terminate_called
-                                  00002bc8         4   data ,l         2
+                                  00002cac         4   data ,l         2
   ___T1000009$1
-                                  00002bcc         c   data ,l         1
+                                  00002cb0         c   data ,l         1
 FILE=new_cnst
-                                  00002bd8  00002bdb         4
+                                  00002cbc  00002cbf         4
   __ec2p_new_handler
-                                  00002bd8         4   data ,g         2
+                                  00002cbc         4   data ,g         2
 FILE=malloc
-                                  00002bdc  00002be3         8
+                                  00002cc0  00002cc7         8
   __Aldata
-                                  00002bdc         8   data ,g         b
+                                  00002cc0         8   data ,g         b
 FILE=munch_dtors
-                                  00002be4  00002be7         4
+                                  00002cc8  00002ccb         4
   __dtors
-                                  00002be4         4   data ,g         2
+                                  00002cc8         4   data ,g         2
 FILE=throw
-                                  00002be8  00002bf3         c
+                                  00002ccc  00002cd7         c
   _curr_throw_stack_entry
-                                  00002be8         4   data ,l        1c
+                                  00002ccc         4   data ,l        1c
   _curr_mem_block_descr
-                                  00002bec         4   data ,l         f
+                                  00002cd0         4   data ,l         f
   _mem_allocation_stack
-                                  00002bf0         4   data ,l         4
+                                  00002cd4         4   data ,l         4
 FILE=vec_newdel
-                                  00002bf4  00002bf7         4
+                                  00002cd8  00002cdb         4
   ___array_new_prefix_size
-                                  00002bf4         4   data ,g         c
+                                  00002cd8         4   data ,g         c
 FILE=array_new
-                                  00002bf8  00002c03         c
+                                  00002cdc  00002ce7         c
   ___T1000002$1
-                                  00002bf8         c   data ,l         1
+                                  00002cdc         c   data ,l         1
 
 SECTION=PResetPRG
 FILE=.\src\reset_program.obj
@@ -597,813 +601,815 @@ FILE=.\src\OBMII.obj
 FILE=.\Tests\TestSuiteCPU.obj
                                   fff00d14  fff00d18         5
 FILE=.\Tests\TestSuiteUART.obj
-                                  fff00d1c  fff00d74        59
+                                  fff00d1c  fff00d9b        80
 FILE=.\RX63N_UART\RX63N_UART.obj
-                                  fff00d78  fff00da4        2d
+                                  fff00d9c  fff00dc8        2d
 FILE=.\RX63N_CPU\RX63N_CPU.obj
-                                  fff00da8  fff00db6         f
+                                  fff00dcc  fff00dda         f
 FILE=.\RX63N_CAN\RX63N_CAN.obj
-                                  fff00db8  fff00de3        2c
+                                  fff00ddc  fff00e07        2c
 FILE=typeinfo
-                                  fff00de4  fff00e11        2e
+                                  fff00e08  fff00e35        2e
 FILE=bad_alloc
-                                  fff00e14  fff00e23        10
+                                  fff00e38  fff00e47        10
 FILE=exception
-                                  fff00e24  fff00e46        23
+                                  fff00e48  fff00e6a        23
 
 SECTION=PIntPRG
 FILE=.\src\interrupt_handlers.obj
-                                  fff00e47  fff00f60       11a
+                                  fff00e6b  fff00f84       11a
   _Excep_SuperVisorInst
-                                  fff00e47         2   func ,g         1
+                                  fff00e6b         2   func ,g         1
   _Excep_UndefinedInst
-                                  fff00e49         2   func ,g         1
+                                  fff00e6d         2   func ,g         1
   _Excep_FloatingPoint
-                                  fff00e4b         2   func ,g         1
+                                  fff00e6f         2   func ,g         1
   _NonMaskableInterrupt
-                                  fff00e4d         2   func ,g         1
+                                  fff00e71         2   func ,g         1
   _Dummy
-                                  fff00e4f         2   func ,g        14
+                                  fff00e73         2   func ,g        14
   _Excep_BRK
-                                  fff00e51         4   func ,g         0
+                                  fff00e75         4   func ,g         0
   _Excep_BUSERR
-                                  fff00e55         1   func ,g         0
+                                  fff00e79         1   func ,g         0
   _Excep_FCUIF_FIFEERR
-                                  fff00e56         1   func ,g         0
+                                  fff00e7a         1   func ,g         0
   _Excep_FCUIF_FRDYI
-                                  fff00e57         1   func ,g         0
+                                  fff00e7b         1   func ,g         0
   _Excep_ICU_SWINT
-                                  fff00e58         2   func ,g         0
-  _Excep_CMT0_CMI0
-                                  fff00e5a         2   func ,g         0
-  _Excep_CMT1_CMI1
-                                  fff00e5c         2   func ,g         0
-  _Excep_CMT2_CMI2
-                                  fff00e5e         2   func ,g         0
-  _Excep_CMT3_CMI3
-                                  fff00e60         2   func ,g         0
-  _Excep_ETHER_EINT
-                                  fff00e62         2   func ,g         0
-  _Excep_USB0_D0FIFO0
-                                  fff00e64         2   func ,g         0
-  _Excep_USB0_D1FIFO0
-                                  fff00e66         2   func ,g         0
-  _Excep_USB0_USBI0
-                                  fff00e68         2   func ,g         0
-  _Excep_USB1_D0FIFO1
-                                  fff00e6a         2   func ,g         0
-  _Excep_USB1_D1FIFO1
-                                  fff00e6c         2   func ,g         0
-  _Excep_USB1_USBI1
-                                  fff00e6e         2   func ,g         0
-  _Excep_RSPI0_SPRI0
-                                  fff00e70         2   func ,g         0
-  _Excep_RSPI0_SPTI0
-                                  fff00e72         2   func ,g         0
-  _Excep_RSPI0_SPII0
-                                  fff00e74         2   func ,g         0
-  _Excep_RSPI1_SPRI1
-                                  fff00e76         2   func ,g         0
-  _Excep_RSPI1_SPTI1
-                                  fff00e78         2   func ,g         0
-  _Excep_RSPI1_SPII1
-                                  fff00e7a         2   func ,g         0
-  _Excep_RSPI2_SPRI2
                                   fff00e7c         2   func ,g         0
-  _Excep_RSPI2_SPTI2
+  _Excep_CMT0_CMI0
                                   fff00e7e         2   func ,g         0
-  _Excep_RSPI2_SPII2
+  _Excep_CMT1_CMI1
                                   fff00e80         2   func ,g         0
-  _Excep_CAN0_RXF0
+  _Excep_CMT2_CMI2
                                   fff00e82         2   func ,g         0
+  _Excep_CMT3_CMI3
+                                  fff00e84         2   func ,g         0
+  _Excep_ETHER_EINT
+                                  fff00e86         2   func ,g         0
+  _Excep_USB0_D0FIFO0
+                                  fff00e88         2   func ,g         0
+  _Excep_USB0_D1FIFO0
+                                  fff00e8a         2   func ,g         0
+  _Excep_USB0_USBI0
+                                  fff00e8c         2   func ,g         0
+  _Excep_USB1_D0FIFO1
+                                  fff00e8e         2   func ,g         0
+  _Excep_USB1_D1FIFO1
+                                  fff00e90         2   func ,g         0
+  _Excep_USB1_USBI1
+                                  fff00e92         2   func ,g         0
+  _Excep_RSPI0_SPRI0
+                                  fff00e94         2   func ,g         0
+  _Excep_RSPI0_SPTI0
+                                  fff00e96         2   func ,g         0
+  _Excep_RSPI0_SPII0
+                                  fff00e98         2   func ,g         0
+  _Excep_RSPI1_SPRI1
+                                  fff00e9a         2   func ,g         0
+  _Excep_RSPI1_SPTI1
+                                  fff00e9c         2   func ,g         0
+  _Excep_RSPI1_SPII1
+                                  fff00e9e         2   func ,g         0
+  _Excep_RSPI2_SPRI2
+                                  fff00ea0         2   func ,g         0
+  _Excep_RSPI2_SPTI2
+                                  fff00ea2         2   func ,g         0
+  _Excep_RSPI2_SPII2
+                                  fff00ea4         2   func ,g         0
+  _Excep_CAN0_RXF0
+                                  fff00ea6         2   func ,g         0
   _Excep_CAN0_TXF0
-                                  fff00e84         1   func ,g         0
-  _Excep_CAN0_RXM0
-                                  fff00e85         1   func ,g         0
-  _Excep_CAN0_TXM0
-                                  fff00e86         1   func ,g         0
-  _Excep_CAN1_RXF1
-                                  fff00e87         2   func ,g         0
-  _Excep_CAN1_TXF1
-                                  fff00e89         2   func ,g         0
-  _Excep_CAN1_RXM1
-                                  fff00e8b         2   func ,g         0
-  _Excep_CAN1_TXM1
-                                  fff00e8d         2   func ,g         0
-  _Excep_RTC_CUP
-                                  fff00e8f         2   func ,g         0
-  _Excep_IRQ0
-                                  fff00e91         1   func ,g         0
-  _Excep_IRQ1
-                                  fff00e92         1   func ,g         0
-  _Excep_IRQ2
-                                  fff00e93         1   func ,g         0
-  _Excep_IRQ3
-                                  fff00e94         1   func ,g         0
-  _Excep_IRQ4
-                                  fff00e95         1   func ,g         0
-  _Excep_IRQ5
-                                  fff00e96         1   func ,g         0
-  _Excep_IRQ6
-                                  fff00e97         1   func ,g         0
-  _Excep_IRQ7
-                                  fff00e98         1   func ,g         0
-  _Excep_IRQ8
-                                  fff00e99         1   func ,g         0
-  _Excep_IRQ9
-                                  fff00e9a         1   func ,g         0
-  _Excep_IRQ10
-                                  fff00e9b         1   func ,g         0
-  _Excep_IRQ11
-                                  fff00e9c         1   func ,g         0
-  _Excep_IRQ12
-                                  fff00e9d         1   func ,g         0
-  _Excep_IRQ13
-                                  fff00e9e         1   func ,g         0
-  _Excep_IRQ14
-                                  fff00e9f         1   func ,g         0
-  _Excep_IRQ15
-                                  fff00ea0         1   func ,g         0
-  _Excep_USB_USBR0
-                                  fff00ea1         2   func ,g         0
-  _Excep_USB_USBR1
-                                  fff00ea3         2   func ,g         0
-  _Excep_RTC_ALM
-                                  fff00ea5         2   func ,g         0
-  _Excep_RTC_SLEEP
-                                  fff00ea7         1   func ,g         0
-  _Excep_ADA0_ADI0
                                   fff00ea8         1   func ,g         0
-  _Excep_S12AD0_S12ADI0
+  _Excep_CAN0_RXM0
                                   fff00ea9         1   func ,g         0
-  _Excep_GROUP_E0
+  _Excep_CAN0_TXM0
                                   fff00eaa         1   func ,g         0
-  _Excep_GROUP_E1
-                                  fff00eab         1   func ,g         0
-  _Excep_GROUP_E2
-                                  fff00eac         1   func ,g         0
-  _Excep_GROUP_E3
-                                  fff00ead         1   func ,g         0
-  _Excep_GROUP_E4
-                                  fff00eae         1   func ,g         0
-  _Excep_GROUP_E5
-                                  fff00eaf         1   func ,g         0
-  _Excep_GROUP_E6
-                                  fff00eb0         1   func ,g         0
-  _Excep_GROUP_L0
-                                  fff00eb1         1   func ,g         0
-  _Excep_SCIX_SCIX0
-                                  fff00eb2         1   func ,g         0
-  _Excep_SCIX_SCIX1
-                                  fff00eb3         1   func ,g         0
-  _Excep_SCIX_SCIX2
-                                  fff00eb4         1   func ,g         0
-  _Excep_SCIX_SCIX3
+  _Excep_CAN1_RXF1
+                                  fff00eab         2   func ,g         0
+  _Excep_CAN1_TXF1
+                                  fff00ead         2   func ,g         0
+  _Excep_CAN1_RXM1
+                                  fff00eaf         2   func ,g         0
+  _Excep_CAN1_TXM1
+                                  fff00eb1         2   func ,g         0
+  _Excep_RTC_CUP
+                                  fff00eb3         2   func ,g         0
+  _Excep_IRQ0
                                   fff00eb5         1   func ,g         0
-  _Excep_TPU0_TGIA0
+  _Excep_IRQ1
                                   fff00eb6         1   func ,g         0
-  _Excep_TPU0_TGIB0
+  _Excep_IRQ2
                                   fff00eb7         1   func ,g         0
-  _Excep_TPU0_TGIC0
+  _Excep_IRQ3
                                   fff00eb8         1   func ,g         0
-  _Excep_TPU0_TGID0
+  _Excep_IRQ4
                                   fff00eb9         1   func ,g         0
-  _Excep_TPU1_TGIA1
+  _Excep_IRQ5
                                   fff00eba         1   func ,g         0
-  _Excep_TPU1_TGIB1
+  _Excep_IRQ6
                                   fff00ebb         1   func ,g         0
-  _Excep_TPU2_TGIA2
+  _Excep_IRQ7
                                   fff00ebc         1   func ,g         0
-  _Excep_TPU2_TGIB2
+  _Excep_IRQ8
                                   fff00ebd         1   func ,g         0
-  _Excep_TPU3_TGIA3
+  _Excep_IRQ9
                                   fff00ebe         1   func ,g         0
-  _Excep_TPU3_TGIB3
+  _Excep_IRQ10
                                   fff00ebf         1   func ,g         0
-  _Excep_TPU3_TGIC3
+  _Excep_IRQ11
                                   fff00ec0         1   func ,g         0
-  _Excep_TPU3_TGID3
+  _Excep_IRQ12
                                   fff00ec1         1   func ,g         0
-  _Excep_TPU4_TGIA4
+  _Excep_IRQ13
                                   fff00ec2         1   func ,g         0
-  _Excep_TPU4_TGIB4
+  _Excep_IRQ14
                                   fff00ec3         1   func ,g         0
-  _Excep_TPU5_TGIA5
+  _Excep_IRQ15
                                   fff00ec4         1   func ,g         0
-  _Excep_TPU5_TGIB5
-                                  fff00ec5         1   func ,g         0
-  _Excep_TPU6_TGIA6
-                                  fff00ec6         1   func ,g         0
-  _Excep_TPU6_TGIB6
-                                  fff00ec7         1   func ,g         0
-  _Excep_TPU6_TGIC6
-                                  fff00ec8         1   func ,g         0
-  _Excep_TPU6_TGID6
-                                  fff00ec9         1   func ,g         0
-  _Excep_TPU6_TGIE6
-                                  fff00eca         1   func ,g         0
-  _Excep_TPU6_TGIF6
+  _Excep_USB_USBR0
+                                  fff00ec5         2   func ,g         0
+  _Excep_USB_USBR1
+                                  fff00ec7         2   func ,g         0
+  _Excep_RTC_ALM
+                                  fff00ec9         2   func ,g         0
+  _Excep_RTC_SLEEP
                                   fff00ecb         1   func ,g         0
-  _Excep_TPU7_TGIA7
+  _Excep_ADA0_ADI0
                                   fff00ecc         1   func ,g         0
-  _Excep_TPU7_TGIB7
+  _Excep_S12AD0_S12ADI0
                                   fff00ecd         1   func ,g         0
-  _Excep_TPU8_TGIA8
+  _Excep_GROUP_E0
                                   fff00ece         1   func ,g         0
-  _Excep_TPU8_TGIB8
+  _Excep_GROUP_E1
                                   fff00ecf         1   func ,g         0
-  _Excep_TPU9_TGIA9
+  _Excep_GROUP_E2
                                   fff00ed0         1   func ,g         0
-  _Excep_TPU9_TGIB9
+  _Excep_GROUP_E3
                                   fff00ed1         1   func ,g         0
-  _Excep_TPU9_TGIC9
+  _Excep_GROUP_E4
                                   fff00ed2         1   func ,g         0
-  _Excep_TPU9_TGID9
+  _Excep_GROUP_E5
                                   fff00ed3         1   func ,g         0
-  _Excep_TPU10_TGIA10
+  _Excep_GROUP_E6
                                   fff00ed4         1   func ,g         0
-  _Excep_TPU10_TGIB10
+  _Excep_GROUP_L0
                                   fff00ed5         1   func ,g         0
-  _Excep_TPU10_TGIC10
+  _Excep_SCIX_SCIX0
                                   fff00ed6         1   func ,g         0
-  _Excep_TPU10_TGID10
+  _Excep_SCIX_SCIX1
                                   fff00ed7         1   func ,g         0
-  _Excep_TPU10_TGIV10
+  _Excep_SCIX_SCIX2
                                   fff00ed8         1   func ,g         0
-  _Excep_MTU5_TGIU5
-                                  fff00ed9         2   func ,g         0
-  _Excep_MTU5_TGIV5
-                                  fff00edb         2   func ,g         0
-  _Excep_MTU5_TGIW5
-                                  fff00edd         2   func ,g         0
-  _Excep_TPU11_TGIA11
+  _Excep_SCIX_SCIX3
+                                  fff00ed9         1   func ,g         0
+  _Excep_TPU0_TGIA0
+                                  fff00eda         1   func ,g         0
+  _Excep_TPU0_TGIB0
+                                  fff00edb         1   func ,g         0
+  _Excep_TPU0_TGIC0
+                                  fff00edc         1   func ,g         0
+  _Excep_TPU0_TGID0
+                                  fff00edd         1   func ,g         0
+  _Excep_TPU1_TGIA1
+                                  fff00ede         1   func ,g         0
+  _Excep_TPU1_TGIB1
                                   fff00edf         1   func ,g         0
-  _Excep_TPU11_TGIB11
+  _Excep_TPU2_TGIA2
                                   fff00ee0         1   func ,g         0
-  _Excep_POE2_OEI1
+  _Excep_TPU2_TGIB2
                                   fff00ee1         1   func ,g         0
-  _Excep_POE2_OEI2
+  _Excep_TPU3_TGIA3
                                   fff00ee2         1   func ,g         0
-  _Excep_TMR0_CMIA0
-                                  fff00ee3         2   func ,g         0
-  _Excep_TMR0_CMIB0
-                                  fff00ee5         2   func ,g         0
-  _Excep_TMR0_OVI0
-                                  fff00ee7         2   func ,g         0
-  _Excep_TMR1_CMIA1
-                                  fff00ee9         2   func ,g         0
-  _Excep_TMR1_CMIB1
-                                  fff00eeb         2   func ,g         0
-  _Excep_TMR1_OVI1
-                                  fff00eed         2   func ,g         0
-  _Excep_TMR2_CMIA2
-                                  fff00eef         2   func ,g         0
-  _Excep_TMR2_CMIB2
-                                  fff00ef1         2   func ,g         0
-  _Excep_TMR2_OVI2
-                                  fff00ef3         2   func ,g         0
-  _Excep_TMR3_CMIA3
-                                  fff00ef5         2   func ,g         0
-  _Excep_TMR3_CMIB3
-                                  fff00ef7         2   func ,g         0
-  _Excep_TMR3_OVI3
-                                  fff00ef9         2   func ,g         0
-  _Excep_RIIC0_EEI0
-                                  fff00efb         2   func ,g         0
-  _Excep_RIIC0_RXI0
+  _Excep_TPU3_TGIB3
+                                  fff00ee3         1   func ,g         0
+  _Excep_TPU3_TGIC3
+                                  fff00ee4         1   func ,g         0
+  _Excep_TPU3_TGID3
+                                  fff00ee5         1   func ,g         0
+  _Excep_TPU4_TGIA4
+                                  fff00ee6         1   func ,g         0
+  _Excep_TPU4_TGIB4
+                                  fff00ee7         1   func ,g         0
+  _Excep_TPU5_TGIA5
+                                  fff00ee8         1   func ,g         0
+  _Excep_TPU5_TGIB5
+                                  fff00ee9         1   func ,g         0
+  _Excep_TPU6_TGIA6
+                                  fff00eea         1   func ,g         0
+  _Excep_TPU6_TGIB6
+                                  fff00eeb         1   func ,g         0
+  _Excep_TPU6_TGIC6
+                                  fff00eec         1   func ,g         0
+  _Excep_TPU6_TGID6
+                                  fff00eed         1   func ,g         0
+  _Excep_TPU6_TGIE6
+                                  fff00eee         1   func ,g         0
+  _Excep_TPU6_TGIF6
+                                  fff00eef         1   func ,g         0
+  _Excep_TPU7_TGIA7
+                                  fff00ef0         1   func ,g         0
+  _Excep_TPU7_TGIB7
+                                  fff00ef1         1   func ,g         0
+  _Excep_TPU8_TGIA8
+                                  fff00ef2         1   func ,g         0
+  _Excep_TPU8_TGIB8
+                                  fff00ef3         1   func ,g         0
+  _Excep_TPU9_TGIA9
+                                  fff00ef4         1   func ,g         0
+  _Excep_TPU9_TGIB9
+                                  fff00ef5         1   func ,g         0
+  _Excep_TPU9_TGIC9
+                                  fff00ef6         1   func ,g         0
+  _Excep_TPU9_TGID9
+                                  fff00ef7         1   func ,g         0
+  _Excep_TPU10_TGIA10
+                                  fff00ef8         1   func ,g         0
+  _Excep_TPU10_TGIB10
+                                  fff00ef9         1   func ,g         0
+  _Excep_TPU10_TGIC10
+                                  fff00efa         1   func ,g         0
+  _Excep_TPU10_TGID10
+                                  fff00efb         1   func ,g         0
+  _Excep_TPU10_TGIV10
+                                  fff00efc         1   func ,g         0
+  _Excep_MTU5_TGIU5
                                   fff00efd         2   func ,g         0
-  _Excep_RIIC0_TXI0
+  _Excep_MTU5_TGIV5
                                   fff00eff         2   func ,g         0
-  _Excep_RIIC0_TEI0
+  _Excep_MTU5_TGIW5
                                   fff00f01         2   func ,g         0
-  _Excep_RIIC1_EEI0
+  _Excep_TPU11_TGIA11
                                   fff00f03         1   func ,g         0
-  _Excep_RIIC1_RXI0
+  _Excep_TPU11_TGIB11
                                   fff00f04         1   func ,g         0
-  _Excep_RIIC1_TXI0
+  _Excep_POE2_OEI1
                                   fff00f05         1   func ,g         0
-  _Excep_RIIC1_TEI0
+  _Excep_POE2_OEI2
                                   fff00f06         1   func ,g         0
-  _Excep_RIIC2_EEI0
-                                  fff00f07         1   func ,g         0
-  _Excep_RIIC2_RXI0
-                                  fff00f08         1   func ,g         0
-  _Excep_RIIC2_TXI0
-                                  fff00f09         1   func ,g         0
-  _Excep_RIIC2_TEI0
-                                  fff00f0a         1   func ,g         0
-  _Excep_RIIC3_EEI0
-                                  fff00f0b         1   func ,g         0
-  _Excep_RIIC3_RXI0
-                                  fff00f0c         1   func ,g         0
-  _Excep_RIIC3_TXI0
-                                  fff00f0d         1   func ,g         0
-  _Excep_RIIC3_TEI0
-                                  fff00f0e         1   func ,g         0
-  _Excep_DMACA_DMAC0
-                                  fff00f0f         1   func ,g         0
-  _Excep_DMACA_DMAC1
-                                  fff00f10         1   func ,g         0
-  _Excep_DMACA_DMAC2
-                                  fff00f11         1   func ,g         0
-  _Excep_DMACA_DMAC3
-                                  fff00f12         1   func ,g         0
-  _Excep_EXDMAC_DMAC0
-                                  fff00f13         1   func ,g         0
-  _Excep_EXDMAC_DMAC1
-                                  fff00f14         1   func ,g         0
-  _Excep_SCI0_RXI0
+  _Excep_TMR0_CMIA0
+                                  fff00f07         2   func ,g         0
+  _Excep_TMR0_CMIB0
+                                  fff00f09         2   func ,g         0
+  _Excep_TMR0_OVI0
+                                  fff00f0b         2   func ,g         0
+  _Excep_TMR1_CMIA1
+                                  fff00f0d         2   func ,g         0
+  _Excep_TMR1_CMIB1
+                                  fff00f0f         2   func ,g         0
+  _Excep_TMR1_OVI1
+                                  fff00f11         2   func ,g         0
+  _Excep_TMR2_CMIA2
+                                  fff00f13         2   func ,g         0
+  _Excep_TMR2_CMIB2
                                   fff00f15         2   func ,g         0
-  _Excep_SCI0_TXI0
+  _Excep_TMR2_OVI2
                                   fff00f17         2   func ,g         0
-  _Excep_SCI0_TEI0
+  _Excep_TMR3_CMIA3
                                   fff00f19         2   func ,g         0
-  _Excep_SCI1_RXI1
+  _Excep_TMR3_CMIB3
                                   fff00f1b         2   func ,g         0
-  _Excep_SCI1_TXI1
+  _Excep_TMR3_OVI3
                                   fff00f1d         2   func ,g         0
-  _Excep_SCI1_TEI1
+  _Excep_RIIC0_EEI0
                                   fff00f1f         2   func ,g         0
+  _Excep_RIIC0_RXI0
+                                  fff00f21         2   func ,g         0
+  _Excep_RIIC0_TXI0
+                                  fff00f23         2   func ,g         0
+  _Excep_RIIC0_TEI0
+                                  fff00f25         2   func ,g         0
+  _Excep_RIIC1_EEI0
+                                  fff00f27         1   func ,g         0
+  _Excep_RIIC1_RXI0
+                                  fff00f28         1   func ,g         0
+  _Excep_RIIC1_TXI0
+                                  fff00f29         1   func ,g         0
+  _Excep_RIIC1_TEI0
+                                  fff00f2a         1   func ,g         0
+  _Excep_RIIC2_EEI0
+                                  fff00f2b         1   func ,g         0
+  _Excep_RIIC2_RXI0
+                                  fff00f2c         1   func ,g         0
+  _Excep_RIIC2_TXI0
+                                  fff00f2d         1   func ,g         0
+  _Excep_RIIC2_TEI0
+                                  fff00f2e         1   func ,g         0
+  _Excep_RIIC3_EEI0
+                                  fff00f2f         1   func ,g         0
+  _Excep_RIIC3_RXI0
+                                  fff00f30         1   func ,g         0
+  _Excep_RIIC3_TXI0
+                                  fff00f31         1   func ,g         0
+  _Excep_RIIC3_TEI0
+                                  fff00f32         1   func ,g         0
+  _Excep_DMACA_DMAC0
+                                  fff00f33         1   func ,g         0
+  _Excep_DMACA_DMAC1
+                                  fff00f34         1   func ,g         0
+  _Excep_DMACA_DMAC2
+                                  fff00f35         1   func ,g         0
+  _Excep_DMACA_DMAC3
+                                  fff00f36         1   func ,g         0
+  _Excep_EXDMAC_DMAC0
+                                  fff00f37         1   func ,g         0
+  _Excep_EXDMAC_DMAC1
+                                  fff00f38         1   func ,g         0
+  _Excep_SCI0_RXI0
+                                  fff00f39         2   func ,g         0
+  _Excep_SCI0_TXI0
+                                  fff00f3b         2   func ,g         0
+  _Excep_SCI0_TEI0
+                                  fff00f3d         2   func ,g         0
+  _Excep_SCI1_RXI1
+                                  fff00f3f         2   func ,g         0
+  _Excep_SCI1_TXI1
+                                  fff00f41         2   func ,g         0
+  _Excep_SCI1_TEI1
+                                  fff00f43         2   func ,g         0
   _Excep_SCI2_RXI2
-                                  fff00f21         1   func ,g         0
+                                  fff00f45         1   func ,g         0
   _Excep_SCI2_TXI2
-                                  fff00f22         1   func ,g         0
+                                  fff00f46         1   func ,g         0
   _Excep_SCI2_TEI2
-                                  fff00f23         1   func ,g         0
+                                  fff00f47         1   func ,g         0
   _Excep_SCI3_RXI3
-                                  fff00f24         2   func ,g         0
-  _Excep_SCI3_TXI3
-                                  fff00f26         2   func ,g         0
-  _Excep_SCI3_TEI3
-                                  fff00f28         2   func ,g         0
-  _Excep_SCI4_RXI4
-                                  fff00f2a         2   func ,g         0
-  _Excep_SCI4_TXI4
-                                  fff00f2c         2   func ,g         0
-  _Excep_SCI4_TEI4
-                                  fff00f2e         2   func ,g         0
-  _Excep_SCI5_RXI5
-                                  fff00f30         2   func ,g         0
-  _Excep_SCI5_TXI5
-                                  fff00f32         2   func ,g         0
-  _Excep_SCI5_TEI5
-                                  fff00f34         2   func ,g         0
-  _Excep_SCI6_RXI6
-                                  fff00f36         2   func ,g         0
-  _Excep_SCI6_TXI6
-                                  fff00f38         2   func ,g         0
-  _Excep_SCI6_TEI6
-                                  fff00f3a         2   func ,g         0
-  _Excep_SCI7_RXI7
-                                  fff00f3c         2   func ,g         0
-  _Excep_SCI7_TXI7
-                                  fff00f3e         2   func ,g         0
-  _Excep_SCI7_TEI7
-                                  fff00f40         2   func ,g         0
-  _Excep_SCI8_RXI8
-                                  fff00f42         2   func ,g         0
-  _Excep_SCI8_TXI8
-                                  fff00f44         2   func ,g         0
-  _Excep_SCI8_TEI8
-                                  fff00f46         2   func ,g         0
-  _Excep_SCI9_RXI9
                                   fff00f48         2   func ,g         0
-  _Excep_SCI9_TXI9
+  _Excep_SCI3_TXI3
                                   fff00f4a         2   func ,g         0
-  _Excep_SCI9_TEI9
+  _Excep_SCI3_TEI3
                                   fff00f4c         2   func ,g         0
-  _Excep_SCI10_RXI10
+  _Excep_SCI4_RXI4
                                   fff00f4e         2   func ,g         0
-  _Excep_SCI10_TXI10
+  _Excep_SCI4_TXI4
                                   fff00f50         2   func ,g         0
-  _Excep_SCI10_TEI10
+  _Excep_SCI4_TEI4
                                   fff00f52         2   func ,g         0
-  _Excep_SCI11_RXI11
+  _Excep_SCI5_RXI5
                                   fff00f54         2   func ,g         0
-  _Excep_SCI11_TXI11
+  _Excep_SCI5_TXI5
                                   fff00f56         2   func ,g         0
-  _Excep_SCI11_TEI11
+  _Excep_SCI5_TEI5
                                   fff00f58         2   func ,g         0
-  _Excep_SCI12_RXI12
+  _Excep_SCI6_RXI6
                                   fff00f5a         2   func ,g         0
-  _Excep_SCI12_TXI12
+  _Excep_SCI6_TXI6
                                   fff00f5c         2   func ,g         0
-  _Excep_SCI12_TEI12
+  _Excep_SCI6_TEI6
                                   fff00f5e         2   func ,g         0
+  _Excep_SCI7_RXI7
+                                  fff00f60         2   func ,g         0
+  _Excep_SCI7_TXI7
+                                  fff00f62         2   func ,g         0
+  _Excep_SCI7_TEI7
+                                  fff00f64         2   func ,g         0
+  _Excep_SCI8_RXI8
+                                  fff00f66         2   func ,g         0
+  _Excep_SCI8_TXI8
+                                  fff00f68         2   func ,g         0
+  _Excep_SCI8_TEI8
+                                  fff00f6a         2   func ,g         0
+  _Excep_SCI9_RXI9
+                                  fff00f6c         2   func ,g         0
+  _Excep_SCI9_TXI9
+                                  fff00f6e         2   func ,g         0
+  _Excep_SCI9_TEI9
+                                  fff00f70         2   func ,g         0
+  _Excep_SCI10_RXI10
+                                  fff00f72         2   func ,g         0
+  _Excep_SCI10_TXI10
+                                  fff00f74         2   func ,g         0
+  _Excep_SCI10_TEI10
+                                  fff00f76         2   func ,g         0
+  _Excep_SCI11_RXI11
+                                  fff00f78         2   func ,g         0
+  _Excep_SCI11_TXI11
+                                  fff00f7a         2   func ,g         0
+  _Excep_SCI11_TEI11
+                                  fff00f7c         2   func ,g         0
+  _Excep_SCI12_RXI12
+                                  fff00f7e         2   func ,g         0
+  _Excep_SCI12_TXI12
+                                  fff00f80         2   func ,g         0
+  _Excep_SCI12_TEI12
+                                  fff00f82         2   func ,g         0
   _Excep_IEBUS_IEBINT
-                                  fff00f60         1   func ,g         0
+                                  fff00f84         1   func ,g         0
 
 SECTION=P
 FILE=.\src\OBMII.obj
-                                  fff00f61  fff01069       109
+                                  fff00f85  fff01094       110
   _main
-                                  fff00f61       108   func ,g         1
+                                  fff00f85       10f   func ,g         1
   _abort
-                                  fff01069         1   func ,g         3
+                                  fff01094         1   func ,g         3
 FILE=.\src\sbrk.obj
-                                  fff0106a  fff010a5        3c
+                                  fff01095  fff010d0        3c
   _sbrk
-                                  fff0106a        3c   func ,g         1
+                                  fff01095        3c   func ,g         1
 FILE=.\Tests\TestSuiteCPU.obj
-                                  fff010a6  fff012ce       229
+                                  fff010d1  fff012f9       229
   TestSuiteCPU::TestSuiteCPU()
-                                  fff010a6        7a   func ,g         1
+                                  fff010d1        7a   func ,g         1
   TestSuiteCPU::~TestSuiteCPU()
-                                  fff01120        1b   func ,g         1
+                                  fff0114b        1b   func ,g         1
   TestSuiteCPU::setup()
-                                  fff0113b        dd   func ,g         1
+                                  fff01166        dd   func ,g         1
   TestSuiteCPU::teardown()
-                                  fff01218        40   func ,g         1
+                                  fff01243        40   func ,g         1
   TestSuiteCPU::LedBlinkTest()
-                                  fff01258        77   func ,g         1
+                                  fff01283        77   func ,g         1
 FILE=.\Tests\TestSuiteUART.obj
-                                  fff012cf  fff014d4       206
+                                  fff012fa  fff0156d       274
   TestSuiteUART::TestSuiteUART()
-                                  fff012cf        7a   func ,g         1
+                                  fff012fa        7a   func ,g         1
   TestSuiteUART::~TestSuiteUART()
-                                  fff01349        1b   func ,g         1
+                                  fff01374        1b   func ,g         1
   TestSuiteUART::setup()
-                                  fff01364       10d   func ,g         1
+                                  fff0138f       10d   func ,g         1
   TestSuiteUART::teardown()
-                                  fff01471        40   func ,g         1
+                                  fff0149c        40   func ,g         1
   TestSuiteUART::UARTSendTest()
-                                  fff014b1        24   func ,g         1
+                                  fff014dc        24   func ,g         1
+  TestSuiteUART::UARTRecieveTest()
+                                  fff01500        6e   func ,g         1
 FILE=.\RX63N_UART\RX63N_UART.obj
-                                  fff014d5  fff018de       40a
+                                  fff0156e  fff019cd       460
   uart::uart()
-                                  fff014d5        8a   func ,l         1
+                                  fff0156e        8a   func ,l         1
   uart::~uart()
-                                  fff0155f        25   func ,l         4
+                                  fff015f8        25   func ,l         4
   Excep_SCI2_TXI2()
-                                  fff01584         d   func ,g         0
+                                  fff0161d         d   func ,g         0
   Excep_SCI2_RXI2()
-                                  fff01591        46   func ,g         0
+                                  fff0162a        82   func ,g         0
   RX63N_UART::RX63N_UART()
-                                  fff015d7        c2   func ,g         1
+                                  fff016ac        c2   func ,g         1
   RX63N_UART::~RX63N_UART()
-                                  fff01699        77   func ,g         1
+                                  fff0176e        77   func ,g         1
   RX63N_UART::transmission_config()
-                                  fff01710        c7   func ,g         2
+                                  fff017e5        c7   func ,g         2
   RX63N_UART::pin_config()
-                                  fff017d7        aa   func ,g         1
-  RX63N_UART::send(const char *, unsigned long)
-                                  fff01881        36   func ,g         1
+                                  fff018ac        aa   func ,g         1
+  RX63N_UART::send(const char *, int)
+                                  fff01956        46   func ,g         1
   RX63N_UART::recieve()
-                                  fff018b7        28   func ,g         1
+                                  fff0199c        32   func ,g         1
 FILE=.\RX63N_CPU\RX63N_CPU.obj
-                                  fff018df  fff01bff       321
+                                  fff019ce  fff01cee       321
   core::core()
-                                  fff018df        8a   func ,l         1
+                                  fff019ce        8a   func ,l         1
   core::~core()
-                                  fff01969        25   func ,l         4
+                                  fff01a58        25   func ,l         4
   RX63N_CPU::clock_config_lock(bool)
-                                  fff0198e        20   func ,g         1
+                                  fff01a7d        20   func ,g         1
   RX63N_CPU::clock_config()
-                                  fff019ae        a4   func ,g         1
+                                  fff01a9d        a4   func ,g         1
   RX63N_CPU::interrupt_config()
-                                  fff01a52        8a   func ,g         1
+                                  fff01b41        8a   func ,g         1
   RX63N_CPU::RX63N_CPU()
-                                  fff01adc        ad   func ,g         2
+                                  fff01bcb        ad   func ,g         2
   RX63N_CPU::~RX63N_CPU()
-                                  fff01b89        77   func ,g         1
+                                  fff01c78        77   func ,g         1
 FILE=.\RX63N_CAN\RX63N_CAN.obj
-                                  fff01c00  fff02481       882
+                                  fff01cef  fff02570       882
   can::can()
-                                  fff01c00        8a   func ,l         1
+                                  fff01cef        8a   func ,l         1
   can::~can()
-                                  fff01c8a        25   func ,l         4
+                                  fff01d79        25   func ,l         4
   MailboxConfig::MailboxConfig()
-                                  fff01caf        9a   func ,l         1
+                                  fff01d9e        9a   func ,l         1
   MailboxConfig::~MailboxConfig()
-                                  fff01d49        1b   func ,l         3
+                                  fff01e38        1b   func ,l         3
   MaskRegister::MaskRegister()
-                                  fff01d64        8a   func ,l         1
+                                  fff01e53        8a   func ,l         1
   MaskRegister::~MaskRegister()
-                                  fff01dee        1b   func ,l         3
+                                  fff01edd        1b   func ,l         3
   Excep_CAN0_TXM0()
-                                  fff01e09         d   func ,g         0
+                                  fff01ef8         d   func ,g         0
   Excep_CAN0_RXM0()
-                                  fff01e16         d   func ,g         0
+                                  fff01f05         d   func ,g         0
   RX63N_CAN::RX63N_CAN()
-                                  fff01e23        d9   func ,g         0
+                                  fff01f12        d9   func ,g         0
   RX63N_CAN::~RX63N_CAN()
-                                  fff01efc        77   func ,g         1
+                                  fff01feb        77   func ,g         1
   RX63N_CAN::transmission_config()
-                                  fff01f73       183   func ,g         2
+                                  fff02062       183   func ,g         2
   RX63N_CAN::pin_config()
-                                  fff020f6        7d   func ,g         1
+                                  fff021e5        7d   func ,g         1
   RX63N_CAN::CAN_MODE_RESET()
-                                  fff02173         6   func ,g         0
+                                  fff02262         6   func ,g         0
   RX63N_CAN::CAN_MODE_HALT()
-                                  fff02179        20   func ,g         1
+                                  fff02268        20   func ,g         1
   RX63N_CAN::CAN_MODE_SLEEP(bool)
-                                  fff02199        19   func ,g         0
+                                  fff02288        19   func ,g         0
   RX63N_CAN::CAN_MODE_OPERATION()
-                                  fff021b2        13   func ,g         1
+                                  fff022a1        13   func ,g         1
   RX63N_CAN::CAN_MODE_TEST(unsigned char, bool)
-                                  fff021c5        33   func ,g         1
+                                  fff022b4        33   func ,g         1
   RX63N_CAN::default_mailbox_config()
-                                  fff021f8       1bb   func ,g         1
+                                  fff022e7       1bb   func ,g         1
   RX63N_CAN::can_send(int, unsigned char)
-                                  fff023b3        c1   func ,g         1
+                                  fff024a2        c1   func ,g         1
   RX63N_CAN::can_recieve()
-                                  fff02474         e   func ,g         1
+                                  fff02563         e   func ,g         1
 FILE=delete
-                                  fff02482  fff024ad        2c
+                                  fff02571  fff0259c        2c
   operator delete(void *)
-                                  fff02482        2c   func ,g        2b
+                                  fff02571        2c   func ,g        2b
 FILE=new
-                                  fff024ae  fff02531        84
+                                  fff0259d  fff02620        84
   operator new(unsigned long)
-                                  fff024ae        84   func ,g        1b
+                                  fff0259d        84   func ,g        1b
 FILE=pure_virt
-                                  fff02532  fff02538         7
+                                  fff02621  fff02627         7
   ___pure_virtual_called
-                                  fff02532         7   func ,g         6
+                                  fff02621         7   func ,g         6
 FILE=typeinfo
-                                  fff02539  fff02af5       5bd
+                                  fff02628  fff02be4       5bd
   std::type_info::operator ==(const std::type_info &) const
-                                  fff02539        45   func ,g         0
+                                  fff02628        45   func ,g         0
   std::type_info::operator !=(const std::type_info &) const
-                                  fff0257e        51   func ,g         0
+                                  fff0266d        51   func ,g         0
   std::type_info::before(const std::type_info &) const
-                                  fff025cf        3e   func ,g         0
+                                  fff026be        3e   func ,g         0
   std::type_info::name() const
-                                  fff0260d         e   func ,g         0
+                                  fff026fc         e   func ,g         0
   std::type_info::~type_info()
-                                  fff0261b        25   func ,g         1
+                                  fff0270a        25   func ,g         1
   std::bad_cast::bad_cast()
-                                  fff02640        ba   func ,g         1
+                                  fff0272f        ba   func ,g         1
   std::bad_cast::bad_cast(const std::bad_cast &)
-                                  fff026fa        c0   func ,g         0
+                                  fff027e9        c0   func ,g         0
   std::bad_cast::operator =(const std::bad_cast &)
-                                  fff027ba        2c   func ,g         0
+                                  fff028a9        2c   func ,g         0
   std::bad_cast::~bad_cast()
-                                  fff027e6        92   func ,g         2
+                                  fff028d5        92   func ,g         2
   std::bad_cast::what() const
-                                  fff02878        23   func ,g         1
+                                  fff02967        23   func ,g         1
   std::bad_typeid::bad_typeid()
-                                  fff0289b        ba   func ,g         1
+                                  fff0298a        ba   func ,g         1
   std::bad_typeid::bad_typeid(const std::bad_typeid &)
-                                  fff02955        c0   func ,g         0
+                                  fff02a44        c0   func ,g         0
   std::bad_typeid::operator =(const std::bad_typeid &)
-                                  fff02a15        2c   func ,g         0
+                                  fff02b04        2c   func ,g         0
   std::bad_typeid::~bad_typeid()
-                                  fff02a41        92   func ,g         2
+                                  fff02b30        92   func ,g         2
   std::bad_typeid::what() const
-                                  fff02ad3        23   func ,g         1
+                                  fff02bc2        23   func ,g         1
 FILE=cppinit
-                                  fff02af6  fff02b23        2e
+                                  fff02be5  fff02c12        2e
   __CALL_INIT
-                                  fff02af6        29   func ,g         1
+                                  fff02be5        29   func ,g         1
   __CALL_END
-                                  fff02b1f         5   func ,g         1
+                                  fff02c0e         5   func ,g         1
 FILE=__initsct
-                                  fff02b24  fff02b6d        4a
+                                  fff02c13  fff02c5c        4a
   __INITSCT
-                                  fff02b24         0   none ,g         1
+                                  fff02c13         0   none ,g         1
   loop1
-                                  fff02b36         0   none ,l         1
+                                  fff02c25         0   none ,l         1
   next_loop1
-                                  fff02b44         0   none ,l         2
+                                  fff02c33         0   none ,l         2
   loop3
-                                  fff02b56         0   none ,l         1
+                                  fff02c45         0   none ,l         1
   next_loop3
-                                  fff02b67         0   none ,l         2
+                                  fff02c56         0   none ,l         2
 FILE=error
-                                  fff02b6e  fff02b77         a
+                                  fff02c5d  fff02c66         a
   ___abort_execution
-                                  fff02b6e         a   func ,g         6
+                                  fff02c5d         a   func ,g         6
 FILE=newhandler
-                                  fff02b78  fff02b99        22
+                                  fff02c67  fff02c88        22
   __default_new_handler()
-                                  fff02b78        22   func ,g         1
+                                  fff02c67        22   func ,g         1
 FILE=static_init
-                                  fff02b9a  fff02c26        8d
+                                  fff02c89  fff02d15        8d
   __call_dtors()
-                                  fff02b9a        8d   func ,g         1
+                                  fff02c89        8d   func ,g         1
 FILE=bad_alloc
-                                  fff02c27  fff02e81       25b
+                                  fff02d16  fff02f70       25b
   std::bad_alloc::bad_alloc()
-                                  fff02c27        ba   func ,g         1
+                                  fff02d16        ba   func ,g         1
   std::bad_alloc::bad_alloc(const std::bad_alloc &)
-                                  fff02ce1        c0   func ,g         0
+                                  fff02dd0        c0   func ,g         0
   std::bad_alloc::operator =(const std::bad_alloc &)
-                                  fff02da1        2c   func ,g         0
+                                  fff02e90        2c   func ,g         0
   std::bad_alloc::~bad_alloc()
-                                  fff02dcd        92   func ,g         2
+                                  fff02ebc        92   func ,g         2
   std::bad_alloc::what() const
-                                  fff02e5f        23   func ,g         1
+                                  fff02f4e        23   func ,g         1
 FILE=exception
-                                  fff02e82  fff032a7       426
+                                  fff02f71  fff03396       426
   std::exception::exception()
-                                  fff02e82        a5   func ,g         4
+                                  fff02f71        a5   func ,g         4
   std::exception::exception(const std::exception &)
-                                  fff02f27        a8   func ,g         4
+                                  fff03016        a8   func ,g         4
   std::exception::operator =(const std::exception &)
-                                  fff02fcf        21   func ,g         4
+                                  fff030be        21   func ,g         4
   std::exception::~exception()
-                                  fff02ff0        3e   func ,g        11
+                                  fff030df        3e   func ,g        11
   std::exception::what() const
-                                  fff0302e        23   func ,g         1
+                                  fff0311d        23   func ,g         1
   std::bad_exception::bad_exception()
-                                  fff03051        b9   func ,g         1
+                                  fff03140        b9   func ,g         1
   std::bad_exception::bad_exception(const std::bad_exception &)
-                                  fff0310a        bf   func ,g         0
+                                  fff031f9        bf   func ,g         0
   std::bad_exception::operator =(const std::bad_exception &)
-                                  fff031c9        2b   func ,g         0
+                                  fff032b8        2b   func ,g         0
   std::bad_exception::~bad_exception()
-                                  fff031f4        91   func ,g         2
+                                  fff032e3        91   func ,g         2
   std::bad_exception::what() const
-                                  fff03285        23   func ,g         1
+                                  fff03374        23   func ,g         1
 FILE=eh_util
-                                  fff032a8  fff034d2       22b
+                                  fff03397  fff035c1       22b
   std::terminate()
-                                  fff032a8        37   func ,g         3
+                                  fff03397        37   func ,g         3
   ___default_terminate
-                                  fff032df         7   func ,g         1
+                                  fff033ce         7   func ,g         1
   std::set_terminate(void (*)())
-                                  fff032e6        3d   func ,g         0
+                                  fff033d5        3d   func ,g         0
   std::unexpected()
-                                  fff03323        1a   func ,g         1
+                                  fff03412        1a   func ,g         1
   std::set_unexpected(void (*)())
-                                  fff0333d        3d   func ,g         0
+                                  fff0342c        3d   func ,g         0
   std::uncaught_exception()
-                                  fff0337a        6d   func ,g         0
+                                  fff03469        6d   func ,g         0
   ___call_unexpected
-                                  fff033e7        db   func ,g         1
+                                  fff034d6        db   func ,g         1
   ___call_terminate
-                                  fff034c2        11   func ,g         5
+                                  fff035b1        11   func ,g         5
 FILE=free
-                                  fff034d3  fff0360d       13b
+                                  fff035c2  fff036fc       13b
   _free
-                                  fff034d3       13b   func ,g         2
+                                  fff035c2       13b   func ,g         2
 FILE=malloc
-                                  fff0360e  fff037ae       1a1
+                                  fff036fd  fff0389d       1a1
   _findmem
-                                  fff0360e        e5   func ,l         1
+                                  fff036fd        e5   func ,l         1
   _malloc
-                                  fff036f3        bc   func ,g         1
+                                  fff037e2        bc   func ,g         1
 FILE=dtor_list
-                                  fff037af  fff03834        86
+                                  fff0389e  fff03923        86
   __process_needed_destructions()
-                                  fff037af        41   func ,g         2
+                                  fff0389e        41   func ,g         2
   ___already_marked_for_destruction
-                                  fff037f0         7   func ,g         1
+                                  fff038df         7   func ,g         1
   ___record_needed_destruction
-                                  fff037f7        3a   func ,g         0
+                                  fff038e6        3a   func ,g         0
   ___std__needed_destruction_list
-                                  fff03831         4   func ,g         0
+                                  fff03920         4   func ,g         0
 FILE=throw
-                                  fff03835  fff046f2       ebe
+                                  fff03924  fff047e1       ebe
   eh_get_memory(unsigned long)
-                                  fff03835        19   func ,l         1
+                                  fff03924        19   func ,l         1
   eh_free_memory(void *)
-                                  fff0384e         a   func ,l         1
+                                  fff0393d         a   func ,l         1
   mem_block_descr_init(a_mem_block_descr *)
-                                  fff03858        1d   func ,l         1
+                                  fff03947        1d   func ,l         1
   init_eh_memory_management()
-                                  fff03875        43   func ,l         1
+                                  fff03964        43   func ,l         1
   alloc_in_mem_block(unsigned long, a_mem_allocation **)
-                                  fff038b8        82   func ,l         2
+                                  fff039a7        82   func ,l         2
   alloc_new_mem_block(unsigned long)
-                                  fff0393a        69   func ,l         1
+                                  fff03a29        69   func ,l         1
   eh_alloc_on_stack(unsigned long)
-                                  fff039a3        60   func ,l         4
+                                  fff03a92        60   func ,l         4
   free_in_mem_block(void *)
-                                  fff03a03        41   func ,l         2
+                                  fff03af2        41   func ,l         2
   eh_free_on_stack(void *)
-                                  fff03a44        4c   func ,l         2
+                                  fff03b33        4c   func ,l         2
   cleanup(an_eh_stack_entry *, unsigned short, unsigned short)
-                                  fff03a90       1bc   func ,l         2
+                                  fff03b7f       1bc   func ,l         2
   check_pointer_levels_and_qualifiers(an_exception_type_specification *, unsigned char *)
-                                  fff03c4c        a0   func ,l         1
+                                  fff03d3b        a0   func ,l         1
   check_exception_type_specifications(an_exception_type_specification *, a_type_info_impl *, unsigned char, unsigned char *, char *, int, void **, an_exception_type_specification **)
-                                  fff03cec       291   func ,l         3
+                                  fff03ddb       291   func ,l         3
   destroy_thrown_object(a_throw_stack_entry *)
-                                  fff03f7d        c1   func ,l         3
+                                  fff0406c        c1   func ,l         3
   ___exception_started
-                                  fff0403e        2a   func ,g         1
+                                  fff0412d        2a   func ,g         1
   ___exception_caught
-                                  fff04068         b   func ,g         5
+                                  fff04157         b   func ,g         5
   ___throw
-                                  fff04073       319   func ,g         5
+                                  fff04162       319   func ,g         5
   push_throw_stack(a_type_info_impl *, void (*)(void *, int), unsigned char, unsigned char *, char *, int, void *, int, a_throw_stack_entry *)
-                                  fff0438c       11e   func ,l         4
+                                  fff0447b       11e   func ,l         4
   ___rethrow
-                                  fff044aa        7b   func ,g         2
+                                  fff04599        7b   func ,g         2
   ___internal_rethrow
-                                  fff04525         7   func ,g         0
+                                  fff04614         7   func ,g         0
   ___throw_setup_ptr
-                                  fff0452c        33   func ,g         0
+                                  fff0461b        33   func ,g         0
   ___throw_setup
-                                  fff0455f        36   func ,g         0
+                                  fff0464e        36   func ,g         0
   ___throw_setup_dtor
-                                  fff04595        35   func ,g         4
+                                  fff04684        35   func ,g         4
   ___free_thrown_object
-                                  fff045ca        74   func ,g         1
+                                  fff046b9        74   func ,g         1
   ___eh_exit_processing
-                                  fff0463e         a   func ,g         0
+                                  fff0472d         a   func ,g         0
   ___suppress_optim_on_vars_in_try
-                                  fff04648         1   func ,g         0
+                                  fff04737         1   func ,g         0
   ___get_curr_eh_stack_entry
-                                  fff04649         e   func ,g         1
+                                  fff04738         e   func ,g         1
   ___type_of_thrown_object
-                                  fff04657        31   func ,g         1
+                                  fff04746        31   func ,g         1
   ___can_throw_type
-                                  fff04688        6b   func ,g         2
+                                  fff04777        6b   func ,g         2
 FILE=setjmp
-                                  fff046f3  fff0471d        2b
+                                  fff047e2  fff0480c        2b
   _setjmp
-                                  fff046f3         0   none ,g         1
+                                  fff047e2         0   none ,g         1
 FILE=xgetmem
-                                  fff0471e  fff0474f        32
+                                  fff0480d  fff0483e        32
   __Getmem
-                                  fff0471e        32   func ,g         1
+                                  fff0480d        32   func ,g         1
 FILE=rtti
-                                  fff04750  fff04e58       709
+                                  fff0483f  fff04f47       709
   clear_base_class_traversal_block(a_base_class_traversal_block *)
-                                  fff04750        36   func ,l         1
+                                  fff0483f        36   func ,l         1
   is_virtual(a_base_class_spec *)
-                                  fff04786        1a   func ,l         1
+                                  fff04875        1a   func ,l         1
   traverse_base_classes(void *, a_type_info_impl *, a_base_class_traversal_block *, a_base_class_spec *)
-                                  fff047a0        d7   func ,l         2
+                                  fff0488f        d7   func ,l         2
   ___derived_to_base_conversion
-                                  fff04877       22a   func ,g         3
+                                  fff04966       22a   func ,g         3
   find_base_class_at_addr(void *, void *, a_type_info_impl *, a_type_info_impl *, int *)
-                                  fff04aa1        f3   func ,l         2
+                                  fff04b90        f3   func ,l         2
   tbc_downcast(void *, a_type_info_impl *, a_base_class_traversal_block *, a_base_class_spec *)
-                                  fff04b94        ce   func ,l         1
+                                  fff04c83        ce   func ,l         1
   tbc_post_downcast(void *, a_type_info_impl *, a_base_class_traversal_block *, a_base_class_spec *)
-                                  fff04c62        53   func ,l         1
+                                  fff04d51        53   func ,l         1
   try_downcast(void *, a_type_info_impl *, void *, a_type_info_impl *, a_type_info_impl *)
-                                  fff04cb5        41   func ,l         1
+                                  fff04da4        41   func ,l         1
   ___dynamic_cast
-                                  fff04cf6        da   func ,g         1
+                                  fff04de5        da   func ,g         1
   __throw_bad_cast()
-                                  fff04dd0        22   func ,l         1
+                                  fff04ebf        22   func ,l         1
   ___throw_bad_typeid
-                                  fff04df2        22   func ,g         1
+                                  fff04ee1        22   func ,g         1
   ___dynamic_cast_ref
-                                  fff04e14        30   func ,g         0
+                                  fff04f03        30   func ,g         0
   ___get_typeid
-                                  fff04e44        15   func ,g         0
+                                  fff04f33        15   func ,g         0
 FILE=vec_newdel
-                                  fff04e59  fff055cb       773
+                                  fff04f48  fff056ba       773
   add_vec_new_or_delete_eh_stack_entry(an_eh_stack_entry *, an_array_alloc_eh_info *, int)
-                                  fff04e59        5b   func ,l         2
+                                  fff04f48        5b   func ,l         2
   alloc_array(unsigned long, unsigned long, void *(*)(unsigned long))
-                                  fff04eb4        3a   func ,l         1
+                                  fff04fa3        3a   func ,l         1
   free_array(void *, unsigned long, unsigned long, void (*)(void *), int)
-                                  fff04eee        46   func ,l         2
+                                  fff04fdd        46   func ,l         2
   record_array_alloc_info(void *, unsigned long, long, unsigned long)
-                                  fff04f34        2d   func ,l         1
+                                  fff05023        2d   func ,l         1
   get_array_size(void *, unsigned long, unsigned long *)
-                                  fff04f61        47   func ,l         1
+                                  fff05050        47   func ,l         1
   array_new_general(void *, long, unsigned long, unsigned long, void *, void *(*)(void *), void (*)(void *, int), void *(*)(unsigned long), void (*)(void *), int, int)
-                                  fff04fa8       19b   func ,l         8
+                                  fff05097       19b   func ,l         8
   ___array_new
-                                  fff05143        51   func ,g         0
+                                  fff05232        51   func ,g         0
   ___placement_array_new
-                                  fff05194        42   func ,g         0
+                                  fff05283        42   func ,g         0
   ___vec_new_eh2
-                                  fff051d6        4d   func ,g         0
+                                  fff052c5        4d   func ,g         0
   ___vec_new2
-                                  fff05223        46   func ,g         0
+                                  fff05312        46   func ,g         0
   ___vec_cctor_eh
-                                  fff05269        51   func ,g         0
+                                  fff05358        51   func ,g         0
   ___array_new_zero
-                                  fff052ba        51   func ,g         0
+                                  fff053a9        51   func ,g         0
   ___placement_array_new_zero
-                                  fff0530b        42   func ,g         0
+                                  fff053fa        42   func ,g         0
   ___vec_new_eh_zero
-                                  fff0534d        4d   func ,g         0
+                                  fff0543c        4d   func ,g         0
   ___cleanup_vec_new_or_delete
-                                  fff0539a        9e   func ,g         1
+                                  fff05489        9e   func ,g         1
   array_delete_general(void *, long, unsigned long, unsigned long, void (*)(void *, int), int, void (*)(void *), int, int)
-                                  fff05438        f8   func ,l         2
+                                  fff05527        f8   func ,l         2
   ___vec_delete2
-                                  fff05530        4a   func ,g         1
+                                  fff0561f        4a   func ,g         1
   ___array_delete2
-                                  fff0557a        4b   func ,g         0
+                                  fff05669        4b   func ,g         0
   __array_pointer_not_from_vec_new
-                                  fff055c5         7   func ,g         1
+                                  fff056b4         7   func ,g         1
 FILE=longjmp
-                                  fff055cc  fff055fd        32
+                                  fff056bb  fff056ec        32
   _longjmp
-                                  fff055cc         0   none ,g         1
+                                  fff056bb         0   none ,g         1
 FILE=array_del
-                                  fff055fe  fff05621        24
+                                  fff056ed  fff05710        24
   operator delete[](void *)
-                                  fff055fe        24   func ,g         1
+                                  fff056ed        24   func ,g         1
 FILE=array_new
-                                  fff05622  fff05653        32
+                                  fff05711  fff05742        32
   operator new[](unsigned long)
-                                  fff05622        32   func ,g         1
+                                  fff05711        32   func ,g         1
 FILE=memzero
-                                  fff05654  fff05663        10
+                                  fff05743  fff05752        10
   ___memzero
-                                  fff05654        10   func ,g         1
+                                  fff05743        10   func ,g         1
 
 SECTION=FIXEDVECT
 FILE=.\src\vector_table.obj

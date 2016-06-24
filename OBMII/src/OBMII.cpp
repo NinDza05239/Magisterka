@@ -50,6 +50,7 @@ void main(void)
 	TestSuiteUART* UARTTest = new TestSuiteUART();
 	UARTTest->setup();
 	UARTTest->UARTSendTest();
+	UARTTest->UARTRecieveTest();
 	UARTTest->teardown();
 	delete UARTTest;
 

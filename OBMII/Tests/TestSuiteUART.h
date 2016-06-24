@@ -23,6 +23,7 @@ public:
 	void teardown();
 
 	void UARTSendTest();
+	void UARTRecieveTest();
 
 };
 

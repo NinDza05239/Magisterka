@@ -9,7 +9,8 @@
 #include <string>
 #include "vect.h"
 
-char SCI2_recieved_data[32];
+char SCI2_recieved_data[256];
+char *data;
 bool data_updated;
 
 void Excep_SCI2_TXI2(void){
@@ -20,12 +21,19 @@ void Excep_SCI2_TXI2(void){
 void Excep_SCI2_RXI2(void){
 
     data_updated = false;
-    if(SCI2.RDR=='Y'){}
- //   	SCI2_recieved_data.clear();
+    if(SCI2.RDR=='Y')
+    	data = SCI2_recieved_data + 1;
     else if(SCI2.RDR=='X')
-        data_updated = true;
+    {
+        SCI2_recieved_data[0] = (char)(data - &SCI2_recieved_data[0] - 1);
+    	data = SCI2_recieved_data + 1;
+    	data_updated = true;
+    }
     else
-    	SCI2_recieved_data[0] = SCI2.RDR;
+    {
+    	*data = SCI2.RDR;
+    	data++;
+    }
     IR(SCI2,RXI2) = 0;
 
 }
@@ -171,55 +179,26 @@ void RX63N_UART::pin_config(){
 	port->PMR.BIT.B1 = 1; /*P50 - SCK*/
 }
 
-/*
-
-void RX63N_UART::send(string data){
-
-	for(int i=0;i<data.size();i++)
-	{
-		while(SCIx->SSR.BIT.TEND == 0){};
-			SCIx->TDR = data.at(i);
-	}
-	while(SCIx->SSR.BIT.TEND == 0){};
-		SCIx->TDR = '\n';
-}
-*/
-
-void RX63N_UART::send(const char* data, size_t size){
+void RX63N_UART::send(const char* data, int size){
 
 	for(short i = 0; i<size;i++ )
 	{
 		while(SCIx->SSR.BIT.TEND == 0){};
 			SCIx->TDR = *data;
 			data++;
-	}
-	/*
-	while(SCIx->SSR.BIT.TEND == 0){};
-		SCIx->TDR = '\n';
-		*/
-}
-/*
-string RX63N_UART::recieve()
-{
 
-	if(data_updated == true)
-	{
-		_recieved_data = SCI2_recieved_data;
-		data_updated = false;
-		return _recieved_data;
 	}
-	else
-		return "";
+	while(SCIx->SSR.BIT.TEND == 0){};
+			SCIx->TDR = '\n';
 }
-*/
 
 const char* RX63N_UART::recieve()
 {
 
 	if(data_updated == true)
 	{
-		//_recieved_data = SCI2_recieved_data.c_str();
 		data_updated = false;
+		_recieved_data = SCI2_recieved_data;
 		return _recieved_data;
 	}
 	else

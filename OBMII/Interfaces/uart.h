@@ -13,7 +13,7 @@ public:
 	uart(){};
 	virtual ~uart(){};
 	virtual void transmission_config() = 0;
-	virtual void send(const char* data, size_t size) = 0;
+	virtual void send(const char* data, int size) = 0;
 	virtual const char* recieve() = 0;
 };
 

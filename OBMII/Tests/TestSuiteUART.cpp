@@ -30,7 +30,15 @@ void TestSuiteUART::teardown()
 
 void TestSuiteUART::UARTSendTest()
 {
-	TestedDevice->send("Testing UART Interface, baudrate = 9600 1stop Bit",48);
-
+	TestedDevice->send("Testing UART Interface, baudrate = 9600 1stop Bit",49);
 }
 
+void TestSuiteUART::UARTRecieveTest()
+{
+	const char* data_ptr;
+	TestedDevice->send("Testing UART Interface, in [5] seconds",39);
+	for(int i = 0; i<5000000;i++){}
+	data_ptr = TestedDevice->recieve();
+	TestedDevice->send(data_ptr + 1,(int)(*data_ptr));
+
+}

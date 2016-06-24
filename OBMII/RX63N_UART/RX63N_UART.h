@@ -18,14 +18,11 @@ void Excep_SCI2_RXI2(void);
 #pragma interrupt (Excep_SCI2_TXI2(vect=221))
 void Excep_SCI2_TXI2(void);
 
-
-
 class RX63N_UART : public uart{
 public:
 	volatile __evenaccess st_port5* port;
 	volatile __evenaccess st_sci0 *SCIx;
-	//string _recieved_data;
-	char* _recieved_data;
+	const char* _recieved_data;
 	void pin_config();
 public:
 
@@ -33,10 +30,7 @@ public:
 	~RX63N_UART();
 
 	void transmission_config();
-//	void send(string data);
-	void send(const char* data, size_t size);
-
-//	string recieve();
+	void send(const char* data, int size);
 	const char* recieve();
 };
 
