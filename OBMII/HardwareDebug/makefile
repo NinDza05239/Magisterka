@@ -9,6 +9,7 @@ RM := rm -rf *.sni *.dbg *.lst *.lis *.lpp *.map *.x *.lbp src/*.src src/*.p src
 # All of the sources participating in the build are defined here
 -include sources.mk
 -include src/subdir.mk
+-include Tests/subdir.mk
 -include RX63N_UART/subdir.mk
 -include RX63N_CPU/subdir.mk
 -include RX63N_CAN/subdir.mk
@@ -133,6 +134,7 @@ OBMII.lib:
 clean:
 	-$(RM) $(LIBRARY_GENERATOR_OUTPUTTYPE_OUTPUTS) $(CONVERTOR_OUTPUT_OUTPUTS) 
 	-rm -rf "src"/*.obj "src"/*.d "src"/*.src "src"/*.p "src"/*.pp "src"/*.mrc "src"/*.prn
+	-rm -rf "Tests"/*.obj "Tests"/*.d "Tests"/*.src "Tests"/*.p "Tests"/*.pp "Tests"/*.mrc "Tests"/*.prn
 	-rm -rf "RX63N_UART"/*.obj "RX63N_UART"/*.d "RX63N_UART"/*.src "RX63N_UART"/*.p "RX63N_UART"/*.pp "RX63N_UART"/*.mrc "RX63N_UART"/*.prn
 	-rm -rf "RX63N_CPU"/*.obj "RX63N_CPU"/*.d "RX63N_CPU"/*.src "RX63N_CPU"/*.p "RX63N_CPU"/*.pp "RX63N_CPU"/*.mrc "RX63N_CPU"/*.prn
 	-rm -rf "RX63N_CAN"/*.obj "RX63N_CAN"/*.d "RX63N_CAN"/*.src "RX63N_CAN"/*.p "RX63N_CAN"/*.pp "RX63N_CAN"/*.mrc "RX63N_CAN"/*.prn
@@ -144,7 +146,7 @@ post-build:
 	-C:\Renesas\E2_STU~1\DEBUGC~1\RX\RX_CON~1.EXE OBMII.abs OBMII.x
 	@echo.
 
-.PHONY: all clean dependents $(LINKER_OUTPUT_OUTPUTS)
+.PHONY: all clean dependents
 .SECONDARY: post-build
 
 -include ../makefile.targets

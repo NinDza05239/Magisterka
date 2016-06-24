@@ -29,6 +29,9 @@
 //_SINT ios_base::Init::init_cnt;       // Remove the comment when you use ios
 #endif
 
+#include "TestSuiteCPU.h"
+#include "TestSuiteUART.h"
+
 void main(void);
 #ifdef __cplusplus
 extern "C" {
@@ -38,6 +41,17 @@ void abort(void);
 
 void main(void)
 {
+	TestSuiteCPU* CPUTest = new TestSuiteCPU();
+	CPUTest->setup();
+	CPUTest->LedBlinkTest();
+	CPUTest->teardown();
+	delete CPUTest;
+
+	TestSuiteUART* UARTTest = new TestSuiteUART();
+	UARTTest->setup();
+	UARTTest->UARTSendTest();
+	UARTTest->teardown();
+	delete UARTTest;
 
 }
 

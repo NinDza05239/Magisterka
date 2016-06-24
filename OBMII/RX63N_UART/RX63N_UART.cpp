@@ -185,9 +185,9 @@ void RX63N_UART::send(string data){
 }
 */
 
-void RX63N_UART::send(const char* data){
+void RX63N_UART::send(const char* data, size_t size){
 
-	while(data!='\0')
+	for(short i = 0; i<size;i++ )
 	{
 		while(SCIx->SSR.BIT.TEND == 0){};
 			SCIx->TDR = *data;

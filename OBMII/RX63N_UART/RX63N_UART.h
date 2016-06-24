@@ -34,7 +34,7 @@ public:
 
 	void transmission_config();
 //	void send(string data);
-	void send(const char* data);
+	void send(const char* data, size_t size);
 
 //	string recieve();
 	const char* recieve();

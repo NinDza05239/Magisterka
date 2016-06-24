@@ -4,6 +4,8 @@
 -input="./src/reset_program.obj"
 -input="./src/sbrk.obj"
 -input="./src/vector_table.obj"
+-input="./Tests/TestSuiteCPU.obj"
+-input="./Tests/TestSuiteUART.obj"
 -input="./RX63N_UART/RX63N_UART.obj"
 -input="./RX63N_CPU/RX63N_CPU.obj"
 -input="./RX63N_CAN/RX63N_CAN.obj"

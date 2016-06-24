@@ -4,16 +4,16 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 CPP_SRCS += \
-..\Tests/TestSuitehardware.cpp \
-..\Tests/TestsuiteOBM.cpp 
+..\Tests/TestSuiteCPU.cpp \
+..\Tests/TestSuiteUART.cpp 
 
 OBJS += \
-./Tests/TestSuitehardware.obj \
-./Tests/TestsuiteOBM.obj 
+./Tests/TestSuiteCPU.obj \
+./Tests/TestSuiteUART.obj 
 
 CPP_DEPS += \
-./Tests/TestSuitehardware.d \
-./Tests/TestsuiteOBM.d 
+./Tests/TestSuiteCPU.d \
+./Tests/TestSuiteUART.d 
 
 
 # Each subdirectory must supply rules for building sources it contributes
