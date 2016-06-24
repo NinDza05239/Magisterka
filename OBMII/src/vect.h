@@ -1,6 +1,6 @@
 /***************************************************************/
 /*                                                             */
-/*      PROJECT NAME :  OBMII                                  */
+/*      PROJECT NAME :  OnBoardMonitor                         */
 /*      FILE         :  vect.h                                 */
 /*      DESCRIPTION  :  Definition of vector                   */
 /*      CPU SERIES   :  RX600                                  */
@@ -179,16 +179,16 @@ void Excep_RSPI2_SPII2(void);
 void Excep_CAN0_RXF0(void);
 
 // CAN0 TXF0
-#pragma interrupt (Excep_CAN0_TXF0(vect=49))
-void Excep_CAN0_TXF0(void);
+//#pragma interrupt (Excep_CAN0_TXF0(vect=49))
+//void Excep_CAN0_TXF0(void);
 
 // CAN0 RXM0
-#pragma interrupt (Excep_CAN0_RXM0(vect=50))
-void Excep_CAN0_RXM0(void);
+//#pragma interrupt (Excep_CAN0_RXM0(vect=50))
+//void Excep_CAN0_RXM0(void);
 
 // CAN0 TXM0
-#pragma interrupt (Excep_CAN0_TXM0(vect=51))
-void Excep_CAN0_TXM0(void);
+//#pragma interrupt (Excep_CAN0_TXM0(vect=51))
+//void Excep_CAN0_TXM0(void);
 
 // CAN1 RXF1
 #pragma interrupt (Excep_CAN1_RXF1(vect=52))
@@ -767,16 +767,16 @@ void Excep_SCI1_TXI1(void);
 void Excep_SCI1_TEI1(void);
 
 // SCI2 RXI2
-#pragma interrupt (Excep_SCI2_RXI2(vect=220))
-void Excep_SCI2_RXI2(void);
+//#pragma interrupt (Excep_SCI2_RXI2(vect=220))
+//void Excep_SCI2_RXI2(void);
 
 // SCI2 TXI2
-#pragma interrupt (Excep_SCI2_TXI2(vect=221))
-void Excep_SCI2_TXI2(void);
+//#pragma interrupt (Excep_SCI2_TXI2(vect=221))
+//void Excep_SCI2_TXI2(void);
 
 // SCI2 TEI2
-#pragma interrupt (Excep_SCI2_TEI2(vect=222))
-void Excep_SCI2_TEI2(void);
+//#pragma interrupt (Excep_SCI2_TEI2(vect=222))
+//void Excep_SCI2_TEI2(void);
 
 // SCI3 RXI3
 #pragma interrupt (Excep_SCI3_RXI3(vect=223))

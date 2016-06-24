@@ -1,0 +1,16 @@
+-We=--template_info_file="D:\Git\Magisterka\OBMII\HardwareDebug\RX63N_UART\tpldir\RX63N_UART.ti"
+-We=--ii_file="D:\Git\Magisterka\OBMII\HardwareDebug\RX63N_UART\tpldir\RX63N_UART.ii"
+-We=--tentative_info_file="D:\Git\Magisterka\OBMII\HardwareDebug\RX63N_UART\tpldir\RX63N_UART.td"
+
+-output=obj="D:\Git\Magisterka\OBMII\HardwareDebug\RX63N_UART\RX63N_UART.obj"
+-lang=cpp
+-exception
+-include=C:\PROGRA~2\Renesas\RX\2_4_1/include,D:\Git\Magisterka\OBMII\Interfaces,D:\Git\Magisterka\OBMII\ActionFactory,D:\Git\Magisterka\OBMII\OnBoardMonitorApi,D:\Git\Magisterka\OBMII\RX63N_CAN,D:\Git\Magisterka\OBMII\RX63N_CPU,D:\Git\Magisterka\OBMII\RX63N_UART,D:\Git\Magisterka\OBMII\Tests,D:\Git\Magisterka\OBMII\Transmitter,D:\Git\Magisterka\OBMII\src
+-debug
+-isa=rxv1
+-optimize=0
+-fpu
+-alias=noansi
+-nologo
+-define=__RX
+"../RX63N_UART/RX63N_UART.cpp"

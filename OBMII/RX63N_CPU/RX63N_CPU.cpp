@@ -1,0 +1,82 @@
+#include "iodefine.h"
+#include "RX63N_CPU.h"
+
+void RX63N_CPU::clock_config_lock(bool s)
+{
+	if (s)
+		RX63N_CONFIGURATION_LOCK = RX63N_ENABLE_CLOCK_CONFIG;
+	else
+		RX63N_CONFIGURATION_LOCK = RX63N_DISABLE_CLOCK_CONFIG;
+}
+
+void RX63N_CPU::clock_config()
+{
+	SYSTEM.PLLCR.BIT.PLIDIV = 0x0;
+	SYSTEM.PLLCR.BIT.STC = 0x7;
+
+	SYSTEM.PLLCR2.BIT.PLLEN = 0x0;	/*PLL DISABLED*/
+	SYSTEM.SCKCR.BIT.PCKB = 0x0;	/*PERIPHERIAL CLOCK MODULE B DIVISION x(1/1)*/
+	SYSTEM.SCKCR.BIT.BCK = 0x0;		/*EXTERNAL CLOCK MODULE B DIVISION x(1/1)*/
+	SYSTEM.SCKCR.BIT.PSTOP1 = 0x1;	/*BCLK PIN UTPUT IS DISABLED*/
+	SYSTEM.SCKCR.BIT.ICK = 0x0;		/*SYSTEM CLOCK DIVISION x(1/1)*/
+
+	SYSTEM.SCKCR3.BIT.CKSEL = 0x2;	/*CLOCK SOURCE SELECT - MAIN CLOCK OSCILLATOR*/
+	SYSTEM.BCKCR.BIT.BCLKDIV = 0x0;	/*BCLK PIN OUTPUT DVIVSION x(1/1)*/
+	SYSTEM.MOSCCR.BIT.MOSTP = 0x0;	/*MAIN CLOCK OSCILLATOR IS OPERATING*/
+
+	/*HOCO, LOCO, SOS, ILWD clock stoped*/
+	SYSTEM.HOCOPCR.BIT.HOCOPCNT = 0x1;
+	SYSTEM.LOCOCR.BIT.LCSTP = 0x1;
+	SYSTEM.SOSCCR.BIT.SOSTP = 0x1;
+	SYSTEM.ILOCOCR.BIT.ILCSTP = 0x1;
+}
+
+
+void RX63N_CPU::interrupt_config()
+{
+
+	/*	SCI2 Interrupt Configuration*/
+	IPR(SCI2,) = 1;
+
+//	IPR(ICU,GROUP0) = 1;    /*GROUP0 INT Priority Level*/
+//	IEN(ICU,GROUP12) = 1;
+//	ICU.GEN[12].BIT.EN2 = 1; /*Group0 INT Enable*/
+
+	IR(SCI2,RXI2) = 0;
+	IR(SCI2,TXI2) = 0;
+//	IR(SCI2,TEI2) = 0;
+//	ICU.GCR[12].BIT.CLR2 = 1;
+//	ICU.IR[222].BIT.IR = 0;
+
+	IEN(SCI2,RXI2) = 1;
+	IEN(SCI2,TXI2) = 1;
+//	IEN(SCI2,TEI2) = 1;
+
+	/*	CAN2 Interrupt Configuration*/
+	IPR(CAN0,) = 1;     	/*RX INT Priority Level*/
+
+	IPR(ICU,GROUP0) = 1;    /*GROUP0 INT Priority Level*/
+
+	IEN(CAN0,RXM0) = 1;     /*RX INT Enable*/
+	IEN(CAN0,TXM0) = 1;		/*TX INT Enable*/
+
+	IEN(ICU,GROUP0) = 1;
+
+	ICU.GEN[00].BIT.EN0 = 1; /*Group0 INT Enable*/
+
+}
+
+RX63N_CPU::RX63N_CPU(){
+
+
+
+	this->clock_config_lock(true);
+	this->clock_config();
+	this->interrupt_config();
+
+
+}
+
+RX63N_CPU::~RX63N_CPU(){};
+
+
